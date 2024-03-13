@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Course.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #b3ae60;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #bcbec4;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Course.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Kevin M. on 12/5/23.</span>
+<span class="s0">//</span>
+<span class="s2">#include </span><span class="s3">&quot;Course.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s5">;</span>
+<span class="s1">Course</span><span class="s5">::</span><span class="s1">Course</span><span class="s5">() : </span><span class="s1">courseName</span><span class="s5">(</span><span class="s3">&quot;Unnamed Course&quot;</span><span class="s5">) {}</span>
+<span class="s1">Course</span><span class="s5">::</span><span class="s1">Course</span><span class="s5">(</span><span class="s4">const </span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">name</span><span class="s5">) : </span><span class="s1">courseName</span><span class="s5">(</span><span class="s1">name</span><span class="s5">){}</span>
+
+<span class="s4">void </span><span class="s1">Course</span><span class="s5">::</span><span class="s1">setCourseName</span><span class="s5">(</span><span class="s4">const </span><span class="s1">std</span><span class="s5">::</span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">name</span><span class="s5">) {</span>
+    <span class="s1">courseName </span><span class="s5">= </span><span class="s1">name</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s4">void </span><span class="s1">Course</span><span class="s5">::</span><span class="s1">addAssignment</span><span class="s5">(</span><span class="s4">const </span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">assignmentName</span><span class="s5">, </span><span class="s4">double </span><span class="s1">grade</span><span class="s5">) {</span>
+    <span class="s1">assignments</span><span class="s5">.</span><span class="s1">push_back</span><span class="s5">(</span><span class="s1">make_pair</span><span class="s5">(</span><span class="s1">assignmentName</span><span class="s5">, </span><span class="s1">grade</span><span class="s5">));</span>
+<span class="s5">}</span>
+
+<span class="s4">double </span><span class="s1">Course</span><span class="s5">::</span><span class="s1">calculateAverageGrade</span><span class="s5">() </span><span class="s4">const </span><span class="s5">{</span>
+    <span class="s4">if </span><span class="s5">(</span><span class="s1">assignments</span><span class="s5">.</span><span class="s1">empty</span><span class="s5">()) {</span>
+        <span class="s4">return </span><span class="s6">0.0</span><span class="s5">;</span>
+    <span class="s5">}</span>
+
+    <span class="s4">double </span><span class="s1">totalGrades </span><span class="s5">= </span><span class="s6">0.0</span><span class="s5">;</span>
+    <span class="s4">for</span><span class="s5">(</span><span class="s4">const auto</span><span class="s5">&amp; </span><span class="s1">assignment </span><span class="s5">: </span><span class="s1">assignments</span><span class="s5">){</span>
+        <span class="s1">totalGrades </span><span class="s5">+= </span><span class="s1">assignment</span><span class="s5">.</span><span class="s1">second</span><span class="s5">;</span>
+    <span class="s5">}</span>
+    <span class="s4">return </span><span class="s1">totalGrades </span><span class="s5">/ </span><span class="s1">assignments</span><span class="s5">.</span><span class="s1">size</span><span class="s5">();</span>
+<span class="s5">}</span>
+
+<span class="s4">void </span><span class="s1">Course</span><span class="s5">::</span><span class="s1">displayCourseDetails</span><span class="s5">() </span><span class="s4">const </span><span class="s5">{</span>
+    <span class="s1">cout </span><span class="s5">&lt;&lt; </span><span class="s3">&quot;Course: &quot; </span><span class="s5">&lt;&lt; (</span><span class="s1">courseName</span><span class="s5">.</span><span class="s1">empty</span><span class="s5">() ? </span><span class="s3">&quot;Unnamed Course&quot; </span><span class="s5">: </span><span class="s1">courseName</span><span class="s5">) &lt;&lt; </span><span class="s1">endl</span><span class="s5">;</span>
+    <span class="s1">cout </span><span class="s5">&lt;&lt; </span><span class="s3">&quot; Assignments &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">endl</span><span class="s5">;</span>
+    <span class="s4">for</span><span class="s5">(</span><span class="s4">const auto</span><span class="s5">&amp; </span><span class="s1">assignment </span><span class="s5">: </span><span class="s1">assignments</span><span class="s5">) {</span>
+        <span class="s1">cout </span><span class="s5">&lt;&lt; </span><span class="s3">&quot;- &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">assignment</span><span class="s5">.</span><span class="s1">first </span><span class="s5">&lt;&lt; </span><span class="s3">&quot;: &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">assignment</span><span class="s5">.</span><span class="s1">second </span><span class="s5">&lt;&lt; </span><span class="s1">endl</span><span class="s5">;</span>
+    <span class="s5">}</span>
+    <span class="s1">cout </span><span class="s5">&lt;&lt; </span><span class="s3">&quot;Average Grade: &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">calculateAverageGrade</span><span class="s5">() &lt;&lt; </span><span class="s1">endl</span><span class="s5">;</span>
+<span class="s5">}</span>
+<span class="s1">string Course</span><span class="s5">::</span><span class="s1">getCourseName</span><span class="s5">() </span><span class="s4">const </span><span class="s5">{</span>
+    <span class="s4">return </span><span class="s1">courseName</span><span class="s5">;</span>
+<span class="s5">}</span></pre>
+</body>
+</html>

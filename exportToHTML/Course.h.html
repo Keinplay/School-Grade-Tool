@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Course.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #b3ae60;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Course.h</font>
+</center></td></tr></table>
+<pre><span class="s0">//</span>
+<span class="s0">// Created by Kevin M. on 12/5/23.</span>
+<span class="s0">//</span>
+
+<span class="s2">#ifndef </span><span class="s1">UNTITLED1_COURSE_H</span>
+<span class="s2">#define </span><span class="s1">UNTITLED1_COURSE_H</span>
+
+<span class="s2">#include </span><span class="s3">&lt;string&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;vector&gt;</span>
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s5">;</span>
+
+<span class="s4">class </span><span class="s1">Course</span><span class="s5">{</span>
+<span class="s4">public</span><span class="s5">:</span>
+    <span class="s1">Course</span><span class="s5">();</span>
+    <span class="s1">Course</span><span class="s5">(</span><span class="s4">const </span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">name</span><span class="s5">);</span>
+    <span class="s4">void </span><span class="s1">setCourseName</span><span class="s5">(</span><span class="s4">const </span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">name</span><span class="s5">);</span>
+    <span class="s4">void </span><span class="s1">addAssignment</span><span class="s5">(</span><span class="s4">const </span><span class="s1">string</span><span class="s5">&amp; </span><span class="s1">assignmentName</span><span class="s5">, </span><span class="s4">double </span><span class="s1">grade</span><span class="s5">);</span>
+    <span class="s4">double </span><span class="s1">calculateAverageGrade</span><span class="s5">() </span><span class="s4">const</span><span class="s5">;</span>
+    <span class="s4">void </span><span class="s1">displayCourseDetails</span><span class="s5">() </span><span class="s4">const</span><span class="s5">;</span>
+    <span class="s1">string getCourseName</span><span class="s5">() </span><span class="s4">const</span><span class="s5">;</span>
+
+<span class="s4">private</span><span class="s5">:</span>
+    <span class="s1">std</span><span class="s5">::</span><span class="s1">string courseName</span><span class="s5">;</span>
+    <span class="s1">vector</span><span class="s5">&lt;</span><span class="s1">pair</span><span class="s5">&lt;</span><span class="s1">string</span><span class="s5">, </span><span class="s4">double</span><span class="s5">&gt;&gt; </span><span class="s1">assignments</span><span class="s5">;</span>
+<span class="s5">};</span>
+
+
+<span class="s2">#endif </span><span class="s0">//UNTITLED1_COURSE_H</span>
+</pre>
+</body>
+</html>
